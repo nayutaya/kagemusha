@@ -26,6 +26,8 @@ Gem::Specification.new do |s|
     "examples/rand.rb",
     "examples/style.rb",
     "examples/time.rb",
+    "HISTORY",
+    "HISTORY.ja",
     "kagemusha.gemspec",
     "kagemusha.gemspec.erb",
     "lib/kagemusha/composite.rb",
@@ -36,7 +38,9 @@ Gem::Specification.new do |s|
     "lib/kagemusha/time.rb",
     "lib/kagemusha/version.rb",
     "lib/kagemusha.rb",
+    "LICENSE",
     "Rakefile",
+    "README",
     "README.ja",
     "test/test_bugs.rb",
     "test/test_complex_cases.rb",
@@ -59,7 +63,5 @@ Gem::Specification.new do |s|
     "test/test_rand.rb",
     "test/test_time.rb",
   ]
-  s.extra_rdoc_files = [
-    "README.ja",
-  ]
+  s.extra_rdoc_files = []
 end

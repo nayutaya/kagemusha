@@ -1,0 +1,59 @@
+
+影武者 - テスト用モック作成支援ライブラリ
+=========================================
+
+これって何?
+-----------
+
+  Rubyでテストコードを記述するための便利ライブラリです。
+  
+  例えば日付関係のテストを記述する際にはDate.todayなどの
+  挙動を上書きするなどの手法がありますが、このやり方ですと
+  無駄にグローバル領域を汚染してしまいます。
+  
+  ブロックで指定された範囲内のみに限定して基本的なクラスの
+  挙動を上書きするために、このライブラリを作りました。
+
+  例:
+    require "kagemusha"
+
+    musha = Kagemusha.new(Time)
+    musha.defs(:now) { self.local(2000, 1, 1) }
+    musha.def(:to_s) { self.strftime("%Y-%m-%d") } 
+
+    musha.swap {
+      p Time.now      #=> Sat Jan 01 00:00:00 +0900 2000
+      p Time.now.to_s #=> "2000-01-01"
+    }
+
+  なお、よく使うと思われるDate、Time、randなどに対するモックを
+  いくつか標準で用意されています。
+  
+  例:
+    require "kagemusha/date"
+
+    musha = Kagemusha::Date.at(2000, 1, 1)
+    musha.swap {
+      p Date.today.to_s #=> "2000-01-01"
+    }
+
+
+インストール
+------------
+
+  Gemでインストールしてください。
+
+    $ gem install kagemusha
+
+
+利用例
+------
+
+  exampleディレクトリを見てください。
+
+
+サポート
+--------
+
+  何かありましたら下記までお願いします。
+    加藤 勇也 (Yuya Kato) <yuyakato at gmail.com>

@@ -1,0 +1,57 @@
+
+= Kagemusha - a library of testing mock-objects
+
+http://kagemusha.rubyforge.org/
+
+== DESCRIPTION:
+
+Kagemusha is a library of helper functions
+for testing Ruby scripts.  It helps you generating
+scoped mock-objects which overrides behavior of
+the class restricted in given blocks, without
+tainting a global area.
+
+For example, if you override Date.today when you write
+something about dates, then the code will taint global
+areas to no purpose.
+
+If you use Kagemusha, the test code will override
+behavior of the class restricted in given block.
+
+Example:
+  require "kagemusha"
+
+  musha = Kagemusha.new(Time)
+  musha.defs(:now) { self.local(2000, 1, 1) }
+  musha.def(:to_s) { self.strftime("%Y-%m-%d") } 
+
+  musha.swap {
+    p Time.now      #=> Sat Jan 01 00:00:00 +0900 2000
+    p Time.now.to_s #=> "2000-01-01"
+  }
+
+Also, it has default useful mock-objects set Date, Time,
+rand, and so on.
+
+Example:
+  require "kagemusha/date"
+
+  musha = Kagemusha::Date.at(2000, 1, 1)
+  musha.swap {
+    p Date.today.to_s #=> "2000-01-01"
+  }
+
+== SYNOPSIS:
+
+see example directory.
+
+== INSTALL:
+
+The easiest way to get started with Kagemusha is to
+install it via RubyGems. You can do this easily:
+
+  $ gem install kagemusha
+
+== LICENSE:
+
+Ruby's License
