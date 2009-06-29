@@ -1,7 +1,7 @@
 
 = Kagemusha - a library of testing mock-objects
 
-http://kagemusha.rubyforge.org/
+http://github.com/nayutaya/kagemusha/
 
 == DESCRIPTION:
 
@@ -50,7 +50,7 @@ see example directory.
 The easiest way to get started with Kagemusha is to
 install it via RubyGems. You can do this easily:
 
-  $ gem install kagemusha
+  $ gem install nayutaya-kagemusha
 
 == LICENSE:
 
