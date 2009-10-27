@@ -14,8 +14,9 @@ task :gemspec do
   require "erb"
   require "lib/kagemusha"
 
-  src = File.open("kagemusha.gemspec.erb", "rb") { |file| file.read }
-  erb = ERB.new(src, nil, "-")
+  name = "nayutaya-kagemusha"
+  src  = File.open("#{name}.gemspec.erb", "rb") { |file| file.read }
+  erb  = ERB.new(src, nil, "-")
 
   version = Kagemusha::VERSION
   date    = Time.now.strftime("%Y-%m-%d")
@@ -23,7 +24,7 @@ task :gemspec do
   files      = Dir.glob("**/*").select { |s| File.file?(s) }
   test_files = Dir.glob("test/**").select { |s| File.file?(s) }
 
-  File.open("kagemusha.gemspec", "wb") { |file|
+  File.open("#{name}.gemspec", "wb") { |file|
     file.write(erb.result(binding))
   }
 end
