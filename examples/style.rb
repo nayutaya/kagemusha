@@ -1,5 +1,4 @@
 # coding: utf-8
-# $Id: style.rb 117 2009-02-09 08:09:27Z yuyakato $
 
 require "rubygems"
 require "kagemusha"

@@ -1,5 +1,4 @@
 # coding: utf-8
-# $Id: datetime.rb 108 2009-02-09 06:04:39Z yuyakato $
 
 require "rubygems"
 require "kagemusha/datetime"

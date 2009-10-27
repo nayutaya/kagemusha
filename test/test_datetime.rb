@@ -1,15 +1,9 @@
 # coding: utf-8
 
-#==============================================================================#
-# $Id: test_datetime.rb 108 2009-02-09 06:04:39Z yuyakato $
-#==============================================================================#
-
 require File.dirname(__FILE__) + "/test_helper.rb"
 require File.dirname(__FILE__) + "/../lib/kagemusha/date"
 require File.dirname(__FILE__) + "/../lib/kagemusha/time"
 require File.dirname(__FILE__) + "/../lib/kagemusha/datetime"
-
-#==============================================================================#
 
 class TestKagemushaDateTime < Test::Unit::TestCase
   def setup
@@ -49,6 +43,3 @@ class TestKagemushaDateTime < Test::Unit::TestCase
     assert_equal(1, ret)
   end
 end
-
-#==============================================================================#
-#==============================================================================#
